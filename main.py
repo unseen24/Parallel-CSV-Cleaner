@@ -11,4 +11,4 @@ def process(file_path):
     db.insert_records(cleaned_df)
 
 if __name__ == "__main__":
-     process("C:\\Users\\Renz\\Downloads\\archive\\train.csv")
+    process("C:\\Users\\Renz\\Downloads\\archive\\train.csv")

@@ -34,6 +34,7 @@ def create_db():
 def insert_data(df):
 
     conn = sqlite3.connect(DB_PATH)
+    df.columns = [col.lower().replace(" ", "_").replace("-", "_") for col in df.columns]
     df.to_sql("sales", conn, if_exists="append", index=False)
     conn.close()
 

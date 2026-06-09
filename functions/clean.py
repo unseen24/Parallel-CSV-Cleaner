@@ -33,6 +33,11 @@ def standardize_text(chunk):
     chunk["Region"] = chunk["Region"].str.title()
     return chunk
 
+def standardize_dates(chunk):
+    chunk["Order Date"] = pd.to_datetime(chunk["Order Date"], dayfirst=True).dt.date
+    chunk["Ship Date"] = pd.to_datetime(chunk["Ship Date"], dayfirst=True).dt.date
+    return chunk
+
 
 def clean_chunk(chunk):
     chunk = remove_nulls(chunk)
@@ -41,4 +46,5 @@ def clean_chunk(chunk):
     chunk = standardize_dates(chunk)
     chunk = fix_types(chunk)
     chunk = standardize_text(chunk)
+    chunk = standardize_dates(chunk)
     return chunk
