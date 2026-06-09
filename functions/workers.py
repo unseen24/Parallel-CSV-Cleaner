@@ -11,3 +11,8 @@ def distribute_work(chunks):
     results = pd.concat(results, ignore_index=True)
 
     return results
+
+def distribute_work_n(chunks, n):
+    with Pool(processes=n) as pool:
+        results = pool.map(cln.clean_chunk, chunks)
+    return pd.concat(results).reset_index(drop=True)

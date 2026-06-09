@@ -10,5 +10,7 @@ def process(file_path):
     cleaned_df = w.distribute_work(chunks)
     db.insert_records(cleaned_df)
 
+    #show how the parallel programming works
+
 if __name__ == "__main__":
     process("C:\\Users\\Renz\\Downloads\\archive\\train.csv")
